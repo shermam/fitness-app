@@ -5,3 +5,7 @@
 </mat-toolbar>
 
 <p *ngIf="user">{{user.uid}}</p>
+
+<ul>
+  <li *ngFor="let exercise of exercises">{{exercise}}</li>
+</ul>

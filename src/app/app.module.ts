@@ -7,6 +7,8 @@ import { environment } from "../environments/environment";
 
 import { MatToolbarModule } from "@angular/material";
 
+import { ExcercisesService } from "./services/excercises.service";
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -20,7 +22,9 @@ import { AppComponent } from './app.component';
     AngularFireAuthModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    ExcercisesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

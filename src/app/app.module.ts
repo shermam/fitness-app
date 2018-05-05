@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { FitNavigationComponent } from './fit-navigation/fit-navigation.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { TrainingComponent } from './training/training.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TrainingComponent } from './training/training.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [
     ExcercisesService

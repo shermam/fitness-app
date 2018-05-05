@@ -11,11 +11,13 @@ import { ExcercisesService } from "./services/excercises.service";
 
 import { AppComponent } from './app.component';
 import { FitNavigationComponent } from './fit-navigation/fit-navigation.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FitNavigationComponent
+    FitNavigationComponent,
+    ExercisesComponent
   ],
   imports: [
     BrowserModule,

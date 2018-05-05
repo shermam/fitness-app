@@ -10,10 +10,12 @@ import { MatToolbarModule } from "@angular/material";
 import { ExcercisesService } from "./services/excercises.service";
 
 import { AppComponent } from './app.component';
+import { FitNavigationComponent } from './fit-navigation/fit-navigation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FitNavigationComponent
   ],
   imports: [
     BrowserModule,

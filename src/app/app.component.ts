@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from "angularfire2/auth";
-import { User } from '@firebase/auth-types';
 import { ExcercisesService } from "./services/excercises.service";
 import { Exercises } from "./types/exercises";
 
@@ -11,26 +9,14 @@ import { Exercises } from "./types/exercises";
 })
 export class AppComponent implements OnInit {
 
-  user: User = null;
   exercises: Exercises;
 
   constructor(
-    public auth: AngularFireAuth,
     public ExcercisesService: ExcercisesService
   ){}
 
   ngOnInit(){
-    this.authenticate();
     this.getExercises();
-  }
-
-  authenticate(): void{
-    this.auth.authState.subscribe((user: User) => {
-      if (!user) {
-        this.auth.auth.signInAnonymously();
-      }
-      this.user = user;
-    });
   }
 
   getExercises(): void{

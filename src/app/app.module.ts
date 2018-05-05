@@ -14,13 +14,15 @@ import { FitNavigationComponent } from './fit-navigation/fit-navigation.componen
 import { ExercisesComponent } from './exercises/exercises.component';
 import { TrainingComponent } from './training/training.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { CreateTrainingComponent } from './create-training/create-training.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FitNavigationComponent,
     ExercisesComponent,
-    TrainingComponent
+    TrainingComponent,
+    CreateTrainingComponent
   ],
   imports: [
     BrowserModule,

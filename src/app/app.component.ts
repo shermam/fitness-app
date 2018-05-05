@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "angularfire2/auth";
 import { User } from '@firebase/auth-types';
 import { ExcercisesService } from "./services/excercises.service";
+import { Exercises } from "./types/exercises";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { ExcercisesService } from "./services/excercises.service";
 export class AppComponent implements OnInit {
 
   user: User = null;
-  exercises: String[] = [];
+  exercises: Exercises;
 
   constructor(
     public auth: AngularFireAuth,

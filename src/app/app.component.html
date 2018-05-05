@@ -4,8 +4,12 @@
   Fitness App
 </mat-toolbar>
 
-<p *ngIf="user">{{user.uid}}</p>
-
+<h1>Inferiores</h1>
 <ul>
-  <li *ngFor="let exercise of exercises">{{exercise}}</li>
+  <li *ngFor="let exercise of exercises.inferiores">{{exercise}}</li>
+</ul>
+
+<h1>Superiores</h1>
+<ul>
+  <li *ngFor="let exercise of exercises.superiores">{{exercise}}</li>
 </ul>

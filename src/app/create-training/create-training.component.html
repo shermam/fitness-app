@@ -1,3 +1,45 @@
-<p>
-  create-training works!
-</p>
+<mat-horizontal-stepper>
+
+  <mat-step>
+    <ng-template matStepLabel>Grupo</ng-template>
+
+    <div class="type-buttons">
+      <button mat-raised-button color="accent">Superiores</button>
+      <button mat-raised-button color="accent">Inferiores</button>
+    </div>
+
+    <div>
+      <button mat-button
+              matStepperNext>
+        Proxímo
+      </button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Exercício</ng-template>
+
+    <div>
+      <button mat-button
+              matStepperPrevious>
+        Anterior
+      </button>
+      <button mat-button
+              matStepperNext>
+        Proxímo
+      </button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Detalhes</ng-template>
+
+    <div>
+      <button mat-button
+              matStepperPrevious>
+        Anterior
+      </button>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

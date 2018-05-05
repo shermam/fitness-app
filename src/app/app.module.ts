@@ -5,7 +5,11 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environment";
 
-import { MatToolbarModule, MatButtonModule } from "@angular/material";
+import { 
+  MatToolbarModule, 
+  MatButtonModule, 
+  MatStepperModule 
+} from "@angular/material";
 
 import { ExcercisesService } from "./services/excercises.service";
 
@@ -31,7 +35,8 @@ import { CreateTrainingComponent } from './create-training/create-training.compo
     AngularFireAuthModule,
     MatToolbarModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatStepperModule
   ],
   providers: [
     ExcercisesService

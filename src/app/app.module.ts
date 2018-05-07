@@ -4,11 +4,18 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environment";
+import { FormsModule } from "@angular/forms";
+import { MAT_DATE_LOCALE } from "@angular/material/core";
 
 import { 
   MatToolbarModule, 
   MatButtonModule, 
-  MatStepperModule 
+  MatStepperModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatInputModule,
+  MatDialogModule
 } from "@angular/material";
 
 import { ExcercisesService } from "./services/excercises.service";
@@ -19,6 +26,7 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { TrainingComponent } from './training/training.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { CreateTrainingComponent } from './create-training/create-training.component';
+import { AddExerciseComponent } from './add-exercise/add-exercise.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,8 @@ import { CreateTrainingComponent } from './create-training/create-training.compo
     FitNavigationComponent,
     ExercisesComponent,
     TrainingComponent,
-    CreateTrainingComponent
+    CreateTrainingComponent,
+    AddExerciseComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +45,20 @@ import { CreateTrainingComponent } from './create-training/create-training.compo
     MatToolbarModule,
     MatButtonModule,
     AppRoutingModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    FormsModule,
+    MatDialogModule
   ],
   providers: [
-    ExcercisesService
+    ExcercisesService,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+  ],
+  entryComponents: [
+    AddExerciseComponent
   ],
   bootstrap: [AppComponent]
 })

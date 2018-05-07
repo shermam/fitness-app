@@ -1,6 +1,6 @@
 export class Exercise {
     name: String;
-    serires: Number;
+    series: Number;
     repetitions: Number;
     restSeconds: Number;
     type: String;

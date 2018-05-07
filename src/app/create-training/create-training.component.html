@@ -1,45 +1,22 @@
-<mat-horizontal-stepper>
+<div class="container">
+  <mat-form-field>
+    <input matInput 
+           [matDatepicker]="picker" 
+           placeholder="Data do Treino"
+           [(ngModel)]="training.date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [touchUi]="isMobile"></mat-datepicker>
+  </mat-form-field>
 
-  <mat-step>
-    <ng-template matStepLabel>Grupo</ng-template>
+  <button mat-raised-button 
+          color="accent"
+          (click)="addExercise()">
+    Adicionar Exercício
+  </button>
 
-    <div class="type-buttons">
-      <button mat-raised-button color="accent">Superiores</button>
-      <button mat-raised-button color="accent">Inferiores</button>
-    </div>
-
-    <div>
-      <button mat-button
-              matStepperNext>
-        Proxímo
-      </button>
-    </div>
-  </mat-step>
-
-  <mat-step>
-    <ng-template matStepLabel>Exercício</ng-template>
-
-    <div>
-      <button mat-button
-              matStepperPrevious>
-        Anterior
-      </button>
-      <button mat-button
-              matStepperNext>
-        Proxímo
-      </button>
-    </div>
-  </mat-step>
-
-  <mat-step>
-    <ng-template matStepLabel>Detalhes</ng-template>
-
-    <div>
-      <button mat-button
-              matStepperPrevious>
-        Anterior
-      </button>
-    </div>
-  </mat-step>
-
-</mat-horizontal-stepper>
+  <ul>
+    <li *ngFor="let ex of training.exercises">
+      {{ex.name}}
+    </li>
+  </ul>
+</div>

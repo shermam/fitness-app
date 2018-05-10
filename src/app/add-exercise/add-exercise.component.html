@@ -1,9 +1,51 @@
-<h2 mat-dialog-title>Delete all</h2>
-<mat-dialog-content>Are you sure?</mat-dialog-content>
+<h2 mat-dialog-title>Informe os dados do Exercício</h2>
+
+<mat-dialog-content>
+
+	<form id="exerciseForm"
+	      name="exerciseForm"
+	      (ngSubmit)="onSubmit()"
+	      #exerciseForm="ngForm">
+
+		<select name="type"
+		        id="type"
+		        [(ngModel)]="exercise.type">
+			<option *ngFor="let key of types">{{key}}</option>
+		</select>
+
+		<select name="name"
+		        id="name"
+		        [(ngModel)]="exercise.name">
+			<option *ngFor="let key of exTypes[exercise.type]">{{key}}</option>
+		</select>
+
+		<input type="number"
+		       name="repetitions"
+		       [(ngModel)]="exercise.repetitions">
+
+		<input type="number"
+		       name="series"
+		       [(ngModel)]="exercise.series">
+
+		<input type="number"
+		       name="restSeconds"
+		       [(ngModel)]="exercise.restSeconds">
+
+	</form>
+
+</mat-dialog-content>
+
 <mat-dialog-actions>
-  <button mat-button
-          mat-dialog-close>Cancelar</button>
-  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button
-          (click)="close()">ok</button>
+
+	<button mat-button
+	        mat-dialog-close>
+		Cancelar
+	</button>
+
+	<button mat-button
+	        type="submit"
+	        form="exerciseForm">
+		ok
+	</button>
+
 </mat-dialog-actions>

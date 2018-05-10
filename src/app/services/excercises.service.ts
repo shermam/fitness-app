@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from "rxjs";
-import { Exercises } from "../types/exercises";
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +8,12 @@ export class ExcercisesService {
 
   constructor() { }
 
-  getExercises(): Observable<Exercises>{
+  getExercises(): Observable<any> {
     return of({
-      inferiores : [
+      inferiores: [
         "Abdução de pernas",
         "Adução de pernas",
-        "Afundo", 
+        "Afundo",
         "Agachamento",
         "Agachamento lateral com barra",
         "Agachamento livre",

@@ -12,11 +12,24 @@
 		                [touchUi]="isMobile"></mat-datepicker>
 	</mat-form-field>
 
-	<button mat-raised-button
-	        color="accent"
-	        (click)="addExercise()">
-		Adicionar Exercício
-	</button>
+
+	<div class="actions">
+		<button mat-raised-button
+		        color="accent"
+		        (click)="addExercise()">
+			Novo Exercício
+		</button>
+		<button mat-raised-button
+		        color="accent"
+		        (click)="finalize()">
+			Finalizar Treino
+		</button>
+		<button mat-raised-button
+		        color="accent"
+		        (click)="cancelar()">
+			Cancelar
+		</button>
+	</div>
 
 	<mat-list>
 		<mat-list-item *ngFor="let ex of training.exercises">
@@ -28,5 +41,6 @@
 			</p>
 		</mat-list-item>
 	</mat-list>
+
 
 </div>

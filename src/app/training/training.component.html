@@ -1,7 +1,15 @@
 <main>
-  <a mat-raised-button
-      color="accent"
-      routerLink="create-traing">
-    Montar Treino
-  </a>
+	<a mat-raised-button
+	   color="accent"
+	   routerLink="create-traing">
+		Montar Treino
+	</a>
+
+	<ul>
+		<li *ngFor="let t of TrainingsService.trainings">
+			{{t.date}}
+		</li>
+	</ul>
+
+
 </main>

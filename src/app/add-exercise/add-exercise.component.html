@@ -7,29 +7,53 @@
 	      (ngSubmit)="onSubmit()"
 	      #exerciseForm="ngForm">
 
-		<select name="type"
-		        id="type"
-		        [(ngModel)]="exercise.type">
-			<option *ngFor="let key of types">{{key}}</option>
-		</select>
+		<mat-form-field>
+			<mat-select placeholder="Tipo de Exercício"
+			            name="type"
+			            id="type"
+			            [(ngModel)]="exercise.type">
+				<mat-option *ngFor="let key of types"
+				            [value]="key">
+					{{ key }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 
-		<select name="name"
-		        id="name"
-		        [(ngModel)]="exercise.name">
-			<option *ngFor="let key of exTypes[exercise.type]">{{key}}</option>
-		</select>
+		<mat-form-field>
+			<mat-select placeholder="Exercício"
+			            name="name"
+			            id="name"
+			            [(ngModel)]="exercise.name">
+				<mat-option *ngFor="let key of exTypes[exercise.type]"
+				            [value]="key">
+					{{ key }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 
-		<input type="number"
-		       name="repetitions"
-		       [(ngModel)]="exercise.repetitions">
+		<mat-form-field class="example-full-width">
+			<input matInput
+			       type="number"
+			       name="repetitions"
+			       [(ngModel)]="exercise.repetitions"
+			       placeholder="Número de repetições">
+		</mat-form-field>
 
-		<input type="number"
-		       name="series"
-		       [(ngModel)]="exercise.series">
+		<mat-form-field class="example-full-width">
+			<input matInput
+			       type="number"
+			       name="series"
+			       [(ngModel)]="exercise.series"
+			       placeholder="Número de Séries">
+		</mat-form-field>
 
-		<input type="number"
-		       name="restSeconds"
-		       [(ngModel)]="exercise.restSeconds">
+		<mat-form-field class="example-full-width">
+			<input matInput
+			       type="number"
+			       name="restSeconds"
+			       [(ngModel)]="exercise.restSeconds"
+			       placeholder="Tempo de Descanso em Segundos">
+		</mat-form-field>
 
 	</form>
 

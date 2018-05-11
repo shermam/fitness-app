@@ -7,15 +7,16 @@ import { environment } from "../environments/environment";
 import { FormsModule } from "@angular/forms";
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 
-import { 
-  MatToolbarModule, 
-  MatButtonModule, 
+import {
+  MatToolbarModule,
+  MatButtonModule,
   MatStepperModule,
   MatDatepickerModule,
   MatFormFieldModule,
   MatNativeDateModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 } from "@angular/material";
 
 import { ExcercisesService } from "./services/excercises.service";
@@ -51,7 +52,8 @@ import { AddExerciseComponent } from './add-exercise/add-exercise.component';
     MatNativeDateModule,
     MatInputModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [
     ExcercisesService,

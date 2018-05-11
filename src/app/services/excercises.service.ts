@@ -58,7 +58,7 @@ export class ExcercisesService {
           "Elevação lateral curvado",
           "Elevação lateral sentado",
           "Elevação lateral unilateral com halteres",
-          "Elevação lateral unilateral curvado na polia baix",
+          "Elevação lateral unilateral curvado na polia baixa",
           "Elevação lateral unilateral inclinado com halteres",
           "Elevação lateral unilateral sentado com halteres",
           "Elevação unilateral na polia baixa",

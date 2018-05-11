@@ -21,7 +21,8 @@
 	<mat-list>
 		<mat-list-item *ngFor="let ex of training.exercises">
 			<mat-icon matListIcon>fitness_center</mat-icon>
-			<h3 matLine> {{ex.name}} </h3>
+			<h3 matLine
+			    [matTooltip]="ex.name"> {{ex.name}} </h3>
 			<p matLine>
 				<span> {{ex.type}} - {{ex.series}} séries - {{ex.repetitions}} reps</span>
 			</p>

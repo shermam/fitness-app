@@ -18,7 +18,8 @@ import {
   MatDialogModule,
   MatSelectModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatTooltipModule
 } from "@angular/material";
 
 import { ExcercisesService } from "./services/excercises.service";
@@ -57,7 +58,8 @@ import { AddExerciseComponent } from './add-exercise/add-exercise.component';
     MatDialogModule,
     MatSelectModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [
     ExcercisesService,

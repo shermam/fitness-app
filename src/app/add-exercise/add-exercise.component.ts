@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from "@angular/material";
 import { Exercise } from "../types/exercise";
 import { ExcercisesService } from "../services/excercises.service";
+import { ExerciseType } from "../types/exerciseTypes";
 
 @Component({
 	selector: 'app-add-exercise',
@@ -11,8 +12,7 @@ import { ExcercisesService } from "../services/excercises.service";
 export class AddExerciseComponent implements OnInit {
 
 	exercise: Exercise;
-	types: string[];
-	exTypes: any;
+	exTypes: ExerciseType[];
 
 	constructor(
 		public ref: MatDialogRef<AddExerciseComponent>,
@@ -25,7 +25,6 @@ export class AddExerciseComponent implements OnInit {
 		this.ExcercisesService.getExercises()
 			.subscribe(exTypes => {
 				this.exTypes = exTypes;
-				this.types = Object.keys(this.exTypes);
 			});
 	}
 
@@ -36,6 +35,13 @@ export class AddExerciseComponent implements OnInit {
 	onSubmit() {
 		console.log('Submeteu');
 		this.close();
+	}
+
+	get exercises() {
+		if (!this.exercise.type) return [];
+		return this.exTypes
+			.find(t => t.name === this.exercise.type)
+			.exercises;
 	}
 
 }

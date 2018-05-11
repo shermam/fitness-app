@@ -16,7 +16,9 @@ import {
   MatNativeDateModule,
   MatInputModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatListModule,
+  MatIconModule
 } from "@angular/material";
 
 import { ExcercisesService } from "./services/excercises.service";
@@ -53,7 +55,9 @@ import { AddExerciseComponent } from './add-exercise/add-exercise.component';
     MatInputModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [
     ExcercisesService,

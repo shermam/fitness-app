@@ -18,9 +18,14 @@
 		Adicionar Exercício
 	</button>
 
-	<ul>
-		<li *ngFor="let ex of training.exercises">
-			{{ex.name}}
-		</li>
-	</ul>
+	<mat-list>
+		<mat-list-item *ngFor="let ex of training.exercises">
+			<mat-icon matListIcon>fitness_center</mat-icon>
+			<h3 matLine> {{ex.name}} </h3>
+			<p matLine>
+				<span> {{ex.type}} - {{ex.series}} séries - {{ex.repetitions}} reps</span>
+			</p>
+		</mat-list-item>
+	</mat-list>
+
 </div>

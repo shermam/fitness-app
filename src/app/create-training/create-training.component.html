@@ -39,6 +39,22 @@
 			<p matLine>
 				<span> {{ex.type}} - {{ex.series}} séries - {{ex.repetitions}} reps</span>
 			</p>
+			<button mat-mini-fab
+			        color="primary"
+			        matTooltip="Editar exercício"
+			        (click)="edit(ex)">
+				<mat-icon aria-label="Editar exercícios">
+					create
+				</mat-icon>
+			</button>
+			<button mat-mini-fab
+			        color="primary"
+			        matTooltip="Apagar exercício"
+			        (click)="delete(ex)">
+				<mat-icon aria-label="Apagar exercício">
+					delete
+				</mat-icon>
+			</button>
 		</mat-list-item>
 	</mat-list>
 

@@ -4,6 +4,7 @@ import { MatDialog } from "@angular/material";
 import { AddExerciseComponent } from "../add-exercise/add-exercise.component";
 import { TrainingsService } from "../services/trainings.service";
 import { Location } from "@angular/common";
+import { Exercise } from '../types/exercise';
 
 @Component({
 	selector: 'app-create-training',
@@ -22,7 +23,8 @@ export class CreateTrainingComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.training = new Training();
+		this.training = this.TrainingsService.selectedTraining || new Training();
+		this.TrainingsService.selectedTraining = null;
 		window.addEventListener('resize', e => this.isMobile = this.checkSize());
 	}
 
@@ -31,22 +33,40 @@ export class CreateTrainingComponent implements OnInit {
 	}
 
 	addExercise() {
-		this.dialog.open(AddExerciseComponent)
-			.afterClosed()
-			.subscribe(result => {
-				if (!result) return;
-				this.training.exercises.push(result)
-			});
+		this.openDialog(null);
 	}
 
 	finalize() {
-		this.TrainingsService.trainings.push(this.training);
-		this.training = new Training();
+		if (!this.TrainingsService.trainings.includes(this.training)) {
+			this.TrainingsService.trainings.push(this.training);
+		}
 		this.location.back();
 	}
 
 	cancelar() {
 		this.location.back();
+	}
+
+	edit(ex) {
+		this.openDialog(ex);
+	}
+
+	delete(ex) {
+		this.training
+			.exercises
+			.splice(this.training.exercises.indexOf(ex), 1);
+	}
+
+	openDialog(ex: Exercise) {
+
+		this.dialog.open(AddExerciseComponent, { data: ex })
+			.afterClosed()
+			.subscribe(result => {
+				if (!result) return;
+				if (!this.training.exercises.includes(result)) {
+					this.training.exercises.push(result)
+				}
+			});
 	}
 
 }

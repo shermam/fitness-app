@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from "@angular/material";
+import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { Exercise } from "../types/exercise";
 import { ExcercisesService } from "../services/excercises.service";
 import { ExerciseType } from "../types/exerciseTypes";
@@ -16,11 +16,12 @@ export class AddExerciseComponent implements OnInit {
 
 	constructor(
 		public ref: MatDialogRef<AddExerciseComponent>,
-		public ExcercisesService: ExcercisesService
+		public ExcercisesService: ExcercisesService,
+		@Optional() @Inject(MAT_DIALOG_DATA) public data: Exercise
 	) { }
 
 	ngOnInit() {
-		this.exercise = new Exercise();
+		this.exercise = this.data || new Exercise();
 
 		this.ExcercisesService.getExercises()
 			.subscribe(exTypes => {
@@ -33,7 +34,6 @@ export class AddExerciseComponent implements OnInit {
 	}
 
 	onSubmit() {
-		console.log('Submeteu');
 		this.close();
 	}
 

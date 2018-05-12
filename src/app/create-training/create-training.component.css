@@ -21,3 +21,7 @@
 .actions *:last-child{
     margin-right: 0;
 }
+
+button{
+    margin-left: 20px;
+}

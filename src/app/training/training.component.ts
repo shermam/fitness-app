@@ -15,4 +15,8 @@ export class TrainingComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	edit(t) {
+		this.TrainingsService.selectedTraining = t;
+	}
+
 }

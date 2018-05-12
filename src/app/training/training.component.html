@@ -5,11 +5,31 @@
 		Montar Treino
 	</a>
 
-	<ul>
-		<li *ngFor="let t of TrainingsService.trainings">
-			{{t.date}}
-		</li>
-	</ul>
+	<mat-list>
+		<mat-list-item *ngFor="let t of TrainingsService.trainings">
+			<mat-icon matListIcon>calendar_today</mat-icon>
+			<h3 matLine> {{t.date | date:'dd/MM/yyyy'}} </h3>
+			<p matLine>
+				<span> {{t.exercises.length}} exercícios</span>
+			</p>
+			<button mat-mini-fab
+			        color="primary"
+			        matTooltip="Começar treino">
+				<mat-icon aria-label="Iniciar exercícios">
+					play_arrow
+				</mat-icon>
+			</button>
+			<button mat-mini-fab
+			        color="primary"
+			        matTooltip="Editar treino"
+			        (click)="edit(t)"
+			        routerLink="create-traing">
+				<mat-icon aria-label="Editar exercícios">
+					create
+				</mat-icon>
+			</button>
+		</mat-list-item>
+	</mat-list>
 
 
 </main>

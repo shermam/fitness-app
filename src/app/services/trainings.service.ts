@@ -15,13 +15,15 @@ export class TrainingsService {
 			exercises: [
 				{
 					name: 'Abdução de pernas',
-					series: 12,
-					repetitions: 3,
+					series: 3,
+					repetitions: 12,
 					restSeconds: 30,
 					type: 'inferiores'
 				}
 			]
 		});
+
+		this.selectedTraining = this.trainings[0];
 	}
 
 }

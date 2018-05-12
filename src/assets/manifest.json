@@ -2,7 +2,7 @@
     "name": "Fitness App",
     "short_name": "Fitness App",
     "theme_color": "#673ab7",
-    "background_color": "#ffd740",
+    "background_color": "#673ab7",
     "display": "standalone",
     "scope": "/",
     "start_url": "/"

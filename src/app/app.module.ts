@@ -31,6 +31,7 @@ import { TrainingComponent } from './training/training.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { CreateTrainingComponent } from './create-training/create-training.component';
 import { AddExerciseComponent } from './add-exercise/add-exercise.component';
+import { PlayTrainingComponent } from './play-training/play-training.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AddExerciseComponent } from './add-exercise/add-exercise.component';
     ExercisesComponent,
     TrainingComponent,
     CreateTrainingComponent,
-    AddExerciseComponent
+    AddExerciseComponent,
+    PlayTrainingComponent
   ],
   imports: [
     BrowserModule,

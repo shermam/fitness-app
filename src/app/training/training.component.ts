@@ -19,4 +19,8 @@ export class TrainingComponent implements OnInit {
 		this.TrainingsService.selectedTraining = t;
 	}
 
+	start(t) {
+		this.TrainingsService.selectedTraining = t;
+	}
+
 }

@@ -1,0 +1,13 @@
+<main *ngIf="training">
+	<h1>
+		{{training.date | date:'dd/MM/yyyy'}}
+	</h1>
+
+	<h2>{{training.exercises[index].name}}</h2>
+
+	<div class="series">
+		<p *ngFor="let serie of series">{{serie}}</p>
+	</div>
+
+
+</main>

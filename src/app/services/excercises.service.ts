@@ -45,7 +45,7 @@ export class ExcercisesService {
           "Mesa flexora",
           "Panturrilha burrinho",
           "Ponte inversa",
-          "Siff no Smith Machine",
+          "Stiff no Smith Machine",
           "Sissy Squat",
           "Stiff",
         ]

@@ -1,7 +1,11 @@
 <main>
 	<a mat-raised-button
+	   class="full-width"
 	   color="accent"
 	   routerLink="create-traing">
+		<mat-icon aria-label="Iniciar exercícios">
+			add_circle_outline
+		</mat-icon>
 		Montar Treino
 	</a>
 
@@ -14,7 +18,9 @@
 			</p>
 			<button mat-mini-fab
 			        color="primary"
-			        matTooltip="Começar treino">
+			        matTooltip="Começar treino"
+			        (click)="start(t)"
+			        routerLink="play">
 				<mat-icon aria-label="Iniciar exercícios">
 					play_arrow
 				</mat-icon>

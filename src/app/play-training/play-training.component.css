@@ -1,0 +1,42 @@
+.series p{
+    background-color: #673ab7;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+main{
+    font-family: Arial;
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.series{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}
+
+button{
+    margin: 20px;
+}
+
+.chronometer{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #673ab7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 60px;
+}

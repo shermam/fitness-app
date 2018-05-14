@@ -6,8 +6,33 @@
 	<h2>{{training.exercises[index].name}}</h2>
 
 	<div class="series">
-		<p *ngFor="let serie of series">{{serie}}</p>
+		<p *ngFor="let serie of series"
+		   class="mat-elevation-z4">
+			{{serie}}
+		</p>
 	</div>
 
+	<button mat-raised-button
+	        color="accent"
+	        (click)="toggle()">
+		{{btnText}}
+	</button>
+
+	<div class="chronometer">
+		<h2>{{count}}</h2>
+	</div>
+
+	<div>
+		<button mat-raised-button
+		        color="accent"
+		        (click)="addExercise()">
+			Anterior
+		</button>
+		<button mat-raised-button
+		        color="accent"
+		        (click)="addExercise()">
+			Próximo
+		</button>
+	</div>
 
 </main>

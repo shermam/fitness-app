@@ -1,7 +1,7 @@
 export class Exercise {
     name: String;
-    series: Number;
-    repetitions: Number;
-    restSeconds: Number;
+    series: number;
+    repetitions: number;
+    restSeconds: number;
     type: String;
 }

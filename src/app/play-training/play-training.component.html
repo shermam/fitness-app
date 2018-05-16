@@ -7,30 +7,35 @@
 
 	<div class="series">
 		<p *ngFor="let serie of series"
-		   class="mat-elevation-z4">
+		   class="serie mat-elevation-z4"
+		   [ngClass]="{'resting': serie <= currentSerie}">
 			{{serie}}
 		</p>
 	</div>
 
 	<button mat-raised-button
 	        color="accent"
-	        (click)="toggle()">
+	        (click)="toggle()"
+	        [disabled]="disableToggleButton">
 		{{btnText}}
 	</button>
 
-	<div class="chronometer">
+	<div class="chronometer"
+	     [ngClass]="{'playing': started, 'resting' : !started, 'danger': count<0, 'disabled':disableToggleButton}">
 		<h2>{{count}}</h2>
 	</div>
 
 	<div>
 		<button mat-raised-button
 		        color="accent"
-		        (click)="addExercise()">
+		        (click)="previous()"
+		        [disabled]="index <= 0">
 			Anterior
 		</button>
 		<button mat-raised-button
 		        color="accent"
-		        (click)="addExercise()">
+		        (click)="next()"
+		        [disabled]="index >= training.exercises.length-1">
 			Próximo
 		</button>
 	</div>

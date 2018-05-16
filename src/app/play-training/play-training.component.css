@@ -1,4 +1,4 @@
-.series p{
+.serie{
     background-color: #673ab7;
     color: white;
     width: 30px;
@@ -33,10 +33,27 @@ button{
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    background-color: #673ab7;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
     font-size: 60px;
+    transition: background-color .5s;
+}
+
+.playing{
+    background-color: #673ab7;
+}
+
+.resting{
+    background-color: #ffd740;
+    color: #000000;
+}
+
+.danger{
+    background-color: #ec5427;
+}
+
+.disabled{
+    background-color: rgba(0,0,0,.12);
 }

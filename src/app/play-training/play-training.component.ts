@@ -15,6 +15,8 @@ export class PlayTrainingComponent implements OnInit {
 	interval: any;
 	training: Training = this.TrainingsService.selectedTraining;
 	btnText: string = "Iniciar Série";
+	currentSerie: number = 0;
+	disableToggleButton: boolean = false;
 
 	constructor(
 		public TrainingsService: TrainingsService
@@ -29,6 +31,25 @@ export class PlayTrainingComponent implements OnInit {
 		return new Array(size)
 			.fill(0)
 			.map((v, i) => ++i);
+	}
+
+	reset() {
+		this.count = 0;
+		this.started = false;
+		this.btnText = "Iniciar Série";
+		this.currentSerie = 0;
+		this.disableToggleButton = false;
+		clearInterval(this.interval);
+	}
+
+	previous() {
+		this.index--;
+		this.reset();
+	}
+
+	next() {
+		this.index++;
+		this.reset();
 	}
 
 	toggle() {
@@ -51,8 +72,17 @@ export class PlayTrainingComponent implements OnInit {
 	}
 
 	stop() {
-		this.btnText = "Continuar";
+		this.currentSerie++;
 		clearInterval(this.interval);
+
+		if (this.currentSerie >= this.training.exercises[this.index].series) {
+			this.disableToggleButton = true;
+			this.btnText = "Concluído";
+			this.count = 0;
+			return;
+		}
+
+		this.btnText = "Continuar";
 		this.count = this.training.exercises[this.index].restSeconds;
 		this.interval = setInterval(_ => {
 			this.count--;

@@ -17,7 +17,21 @@ export class TrainingsService {
 					name: 'Abdução de pernas',
 					series: 3,
 					repetitions: 12,
-					restSeconds: 30,
+					restSeconds: 5,
+					type: 'superiores'
+				},
+				{
+					name: 'Barra fixa com pegada aberta',
+					series: 4,
+					repetitions: 12,
+					restSeconds: 6,
+					type: 'superiores'
+				},
+				{
+					name: 'Puxada alta pela frente',
+					series: 5,
+					repetitions: 12,
+					restSeconds: 7,
 					type: 'inferiores'
 				}
 			]

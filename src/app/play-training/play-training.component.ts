@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingsService } from "../services/trainings.service";
 import { Training } from '../types/training';
+import { Play } from "../types/Play";
 
 @Component({
 	selector: 'app-play-training',
@@ -14,15 +15,19 @@ export class PlayTrainingComponent implements OnInit {
 	started: Boolean = false;
 	interval: any;
 	training: Training = this.TrainingsService.selectedTraining;
-	btnText: string = "Iniciar Série";
-	currentSerie: number = 0;
-	disableToggleButton: boolean = false;
+	plays: Play[] = [];
 
 	constructor(
 		public TrainingsService: TrainingsService
 	) { }
 
 	ngOnInit() {
+		this.training.exercises.forEach(exercise => {
+			const play = new Play;
+			exercise.plays = exercise.plays || [];
+			exercise.plays.push(play);
+			this.plays.push(play);
+		});
 	}
 
 	get series() {
@@ -33,12 +38,31 @@ export class PlayTrainingComponent implements OnInit {
 			.map((v, i) => ++i);
 	}
 
+	get currentSerie() {
+		return this.plays[this.index].currentSerie;
+	}
+
+	get disableToggleButton() {
+		return this.plays[this.index].currentSerie >=
+			this.training.exercises[this.index].series;
+	}
+
+	get btnText() {
+		if (this.plays[this.index].currentSerie >=
+			this.training.exercises[this.index].series) {
+			return "Concluído";
+		}
+
+		if (this.started) {
+			return "Descanso";
+		}
+
+		return "Iniciar";
+	}
+
 	reset() {
 		this.count = 0;
 		this.started = false;
-		this.btnText = "Iniciar Série";
-		this.currentSerie = 0;
-		this.disableToggleButton = false;
 		clearInterval(this.interval);
 	}
 
@@ -63,7 +87,6 @@ export class PlayTrainingComponent implements OnInit {
 	}
 
 	start() {
-		this.btnText = "Descanso";
 		clearInterval(this.interval);
 		this.count = 0;
 		this.interval = setInterval(_ => {
@@ -72,17 +95,14 @@ export class PlayTrainingComponent implements OnInit {
 	}
 
 	stop() {
-		this.currentSerie++;
+		this.plays[this.index].currentSerie++;
 		clearInterval(this.interval);
 
-		if (this.currentSerie >= this.training.exercises[this.index].series) {
-			this.disableToggleButton = true;
-			this.btnText = "Concluído";
+		if (this.plays[this.index].currentSerie >= this.training.exercises[this.index].series) {
 			this.count = 0;
 			return;
 		}
 
-		this.btnText = "Continuar";
 		this.count = this.training.exercises[this.index].restSeconds;
 		this.interval = setInterval(_ => {
 			this.count--;

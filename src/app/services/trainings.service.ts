@@ -18,21 +18,24 @@ export class TrainingsService {
 					series: 3,
 					repetitions: 12,
 					restSeconds: 5,
-					type: 'superiores'
+					type: 'superiores',
+					plays: []
 				},
 				{
 					name: 'Barra fixa com pegada aberta',
 					series: 4,
 					repetitions: 12,
 					restSeconds: 6,
-					type: 'superiores'
+					type: 'superiores',
+					plays: []
 				},
 				{
 					name: 'Puxada alta pela frente',
 					series: 5,
 					repetitions: 12,
 					restSeconds: 7,
-					type: 'inferiores'
+					type: 'inferiores',
+					plays: []
 				}
 			]
 		});

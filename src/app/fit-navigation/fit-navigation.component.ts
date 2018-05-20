@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from "angularfire2/auth";
-import { User } from '@firebase/auth-types';
+import { UserService } from "../services/user.service";
 import { UserDoc } from "../types/userDoc";
-import { AngularFirestore, AngularFirestoreDocument } from "angularfire2/firestore";
 
-import { firestore } from "firebase";
+
 
 @Component({
 	selector: 'app-fit-navigation',
@@ -13,41 +11,19 @@ import { firestore } from "firebase";
 })
 export class FitNavigationComponent implements OnInit {
 
-	user: User = null;
-	userDoc: UserDoc = null;
-	userDocument: AngularFirestoreDocument<UserDoc>;
+	userDoc: UserDoc;
 
 	constructor(
-		private afs: AngularFirestore,
-		public auth: AngularFireAuth,
-	) {
-		firestore().settings({
-			timestampsInSnapshots: true
-		});
-	}
+		public userService: UserService
+	) { }
 
 	ngOnInit() {
-		this.authenticate();
+		this.userService.getUser()
+			.subscribe(userDoc => this.userDoc = userDoc);
 	}
 
-	authenticate(): void {
-		this.auth.authState.subscribe((user: User) => {
-			if (!user) {
-				return this.auth.auth.signInAnonymously();
-			}
-
-			this.user = user;
-			this.userDoc = {
-				name: this.user.displayName,
-				uid: this.user.uid
-			}
-
-			this.userDocument = this.afs.doc<UserDoc>(`users/${user.uid}`);
-			this.userDocument.set(this.userDoc);
-
-		});
+	get isLoggedIn(): boolean {
+		return (!!this.userDoc) && !this.userDoc.isAnonymous;
 	}
-
-
 
 }

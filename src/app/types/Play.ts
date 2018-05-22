@@ -1,3 +1,9 @@
 export class Play {
-    currentSerie: number = 0;
+    currentSerie: number;
+
+    static create(): Play {
+        return {
+            currentSerie: 0
+        }
+    }
 }

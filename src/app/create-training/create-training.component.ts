@@ -13,7 +13,6 @@ import { Exercise } from '../types/exercise';
 })
 export class CreateTrainingComponent implements OnInit {
 
-	training: Training;
 	isMobile: Boolean = this.checkSize();
 
 	constructor(
@@ -23,8 +22,7 @@ export class CreateTrainingComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.training = this.TrainingsService.selectedTraining || new Training();
-		this.TrainingsService.selectedTraining = null;
+		this.TrainingsService.selectedTraining = this.TrainingsService.selectedTraining || Training.create();
 		window.addEventListener('resize', e => this.isMobile = this.checkSize());
 	}
 
@@ -37,9 +35,11 @@ export class CreateTrainingComponent implements OnInit {
 	}
 
 	finalize() {
-		if (!this.TrainingsService.trainings.includes(this.training)) {
-			this.TrainingsService.trainings.push(this.training);
+		if (!this.TrainingsService.trainings.includes(this.TrainingsService.selectedTraining)) {
+			this.TrainingsService.trainings.push(this.TrainingsService.selectedTraining);
 		}
+
+		this.TrainingsService.update();
 		this.location.back();
 	}
 
@@ -52,9 +52,9 @@ export class CreateTrainingComponent implements OnInit {
 	}
 
 	delete(ex) {
-		this.training
+		this.TrainingsService.selectedTraining
 			.exercises
-			.splice(this.training.exercises.indexOf(ex), 1);
+			.splice(this.TrainingsService.selectedTraining.exercises.indexOf(ex), 1);
 	}
 
 	openDialog(ex: Exercise) {
@@ -63,8 +63,8 @@ export class CreateTrainingComponent implements OnInit {
 			.afterClosed()
 			.subscribe(result => {
 				if (!result) return;
-				if (!this.training.exercises.includes(result)) {
-					this.training.exercises.push(result)
+				if (!this.TrainingsService.selectedTraining.exercises.includes(result)) {
+					this.TrainingsService.selectedTraining.exercises.push(result)
 				}
 			});
 	}

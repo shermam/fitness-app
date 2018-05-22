@@ -21,7 +21,7 @@ export class AddExerciseComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.exercise = this.data || new Exercise();
+		this.exercise = this.data || Exercise.create();
 
 		this.ExcercisesService.getExercises()
 			.subscribe(exTypes => {

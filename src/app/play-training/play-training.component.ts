@@ -23,7 +23,7 @@ export class PlayTrainingComponent implements OnInit {
 
 	ngOnInit() {
 		this.training.exercises.forEach(exercise => {
-			const play = new Play;
+			const play = Play.create();
 			exercise.plays = exercise.plays || [];
 			exercise.plays.push(play);
 			this.plays.push(play);

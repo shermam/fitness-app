@@ -4,7 +4,7 @@
 		<input matInput
 		       [matDatepicker]="picker"
 		       placeholder="Data do Treino"
-		       [(ngModel)]="training.date"
+		       [(ngModel)]="TrainingsService.selectedTraining.date"
 		       (click)="picker.open()">
 		<mat-datepicker-toggle matSuffix
 		                       [for]="picker"></mat-datepicker-toggle>
@@ -22,7 +22,7 @@
 		<button mat-raised-button
 		        color="accent"
 		        (click)="finalize()">
-			Finalizar Treino
+			Salvar Treino
 		</button>
 		<button mat-raised-button
 		        color="accent"
@@ -32,7 +32,7 @@
 	</div>
 
 	<mat-list>
-		<mat-list-item *ngFor="let ex of training.exercises">
+		<mat-list-item *ngFor="let ex of TrainingsService.selectedTraining.exercises">
 			<mat-icon matListIcon>fitness_center</mat-icon>
 			<h3 matLine
 			    [matTooltip]="ex.name"> {{ex.name}} </h3>

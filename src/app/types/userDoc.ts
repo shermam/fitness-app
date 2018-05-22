@@ -1,3 +1,5 @@
+import { Training } from "./training";
+
 export class UserDoc {
     createdAt: Date;
     email: string;
@@ -7,4 +9,5 @@ export class UserDoc {
     phoneNumber: string;
     photoURL: string;
     uid: string;
+    trainings: Training[];
 }

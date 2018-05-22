@@ -61,6 +61,8 @@ export class TrainingsService {
 	}
 
 	update() {
+		this.user.trainings = this.trainings;
+
 		this.userService.update(this.user);
 	}
 
